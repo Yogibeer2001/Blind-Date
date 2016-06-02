@@ -1,0 +1,10 @@
+
+<h1> Set your Preferences</h1>
+
+<%= form_for :preference, url: '/preferences' do |f| %>
+As young as: <%= f.number_field :min_age %></br>
+As old as: <%= f.number_field :max_age %></br>
+Gender: <%= f.select :gender, options_for_select(['Dude', 'Chick', 'undefined']) %></br>
+Location: <%= f.text_field :location %></br>
+<%= f.submit "create my Preference" %>
+<% end %>

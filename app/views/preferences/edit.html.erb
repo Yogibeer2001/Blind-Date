@@ -1,0 +1,9 @@
+<h1> Editing <%= current_user.username %>'s Preferences</h1>
+
+<%= form_for current_user.preference, url: '/preferences/update', method: :patch do |f| %>
+As young as: <%= f.number_field :min_age %></br>
+As old as: <%= f.number_field :max_age %></br>
+Gender: <%= f.select :gender, options_for_select(['Dude', 'Chick', 'undefined']) %></br>
+Location: <%= f.text_field :location %></br>
+<%= f.submit "Update my Preference" %>
+<% end %>

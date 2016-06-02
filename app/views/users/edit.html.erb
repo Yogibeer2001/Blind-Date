@@ -1,0 +1,15 @@
+<h1>Edit Your Prolfile</h1>
+
+<% if flash[:errors] %>
+<p>You fool: </br></br> <%= flash[:errors]["error_msg"].join(", ")%></p>
+<% end %>
+
+<%= form_for current_user, url: '/users/update', method: :patch do |f| %> <!-- created endpoint to post form to -->
+Username: <%= f.text_field :username %></br>
+Email: <%= f.text_field :email %></br>
+Age: <%= f.number_field :age %></br>
+Gender: <%= f.select :gender, options_for_select(['Dude', 'Chick', 'undefined']) %></br>
+Location: <%= f.text_field :location %></br>
+<%= f.submit("change profile") %>
+
+<% end %>

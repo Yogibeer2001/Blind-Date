@@ -1,0 +1,17 @@
+<h1>Register for Blind Meetups</h1>
+
+<% if flash[:errors] %>
+<p>You fool: </br></br> <%= flash[:errors]["error_msg"].join(", ")%></p>
+<% end %>
+
+<%= form_for :user, url: '/users' do |f| %> <!-- created endpoint to post form to -->
+Username: <%= f.text_field :username %></br>
+Email: <%= f.text_field :email %></br>
+Age: <%= f.number_field :age %></br>
+Gender: <%= f.select :gender, options_for_select(['Dude', 'Chick', 'undefined']) %></br>
+Location: <%= f.text_field :location %></br>
+Password: <%= f.password_field :password %></br>
+Password Confirmation: <%= f.password_field :password_confirmation %></br>
+<%= f.submit("Join the Blind Community") %>
+
+<% end %>
