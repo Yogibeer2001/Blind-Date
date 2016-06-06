@@ -1,5 +1,16 @@
 class SessionsController < ApplicationController
 
+
+
+
+# My Apps Yahoo
+#blind_meetup
+# Client ID (Consumer Key)
+# dj0yJmk9R0pKSTVkcjNWSkV3JmQ9WVdrOVRFdzJSMm81TkhVbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD01Mg--
+# Client Secret (Consumer Secret)
+# da21185c899c597a3e38f70831452517abce4914
+
+
   def create
     user = User.find_by_email(params[:email])
     if user

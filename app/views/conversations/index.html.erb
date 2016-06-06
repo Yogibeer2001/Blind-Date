@@ -1,0 +1,32 @@
+<div class='ui_segment'>
+ <h3>Mailbox</h3>
+ <div class='ui_list'>
+  <div class='item'>
+   <% @conversations.each do |conversation| %>
+   <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
+    <% if conversation.sender_id == current_user.id %></br>
+      <% recipient = User.find(conversation.recipient_id) %>
+    <% else %>
+      <% recipient = User.find(conversation.sender_id) %></br>
+    <% end %>
+    <%= link_to recipient.username, conversation_messages_path(conversation), :class => 'links' %>
+   <% end %>
+  <% end %>
+  </div>
+ </div>
+</div>
+<div class='ui_segment'>
+ <h3>Users matching your profil</h3>
+   <% @match = User.where( "age > ? and age < ? and gender = ?", current_user.preference.min_age, current_user.preference.max_age, current_user.preference.gender)%>
+
+  <div class='ui_list'>
+   <% @match.each do |user| %>
+     <% if user.id != current_user.id %>
+      <div class='item'>
+         <p><%= user.username %> (<%=user.age%>) <button><%= link_to 'Message me!', conversations_path(sender_id: current_user.id, recipient_id: user.id), :class => 'links', method: 'post'%></button></br>
+      </div>
+  <% end %>
+ <% end %>
+ <button><%= link_to 'Return to main menu', home_path, :class => 'links'%></button></p>
+ </div>
+</div>

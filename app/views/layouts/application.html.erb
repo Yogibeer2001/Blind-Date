@@ -2,15 +2,19 @@
 <html>
 <head>
   <title>BlindMeet</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
 
-<%if current_user %>
+<%if current_user && current_user.preference%>
     <%= javascript_tag do %>
       var userLocation = '<%= current_user.preference.location %>';
     <% end %>
+    <%elsif current_user %>
+    <%= javascript_tag do %>
+      var userLocation = '<%= current_user.location %>';
+      <% end %>
   <% end %>
 
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
   <%= csrf_meta_tags %>
 
 <!--  -->

@@ -1,4 +1,4 @@
-<h1>Index of the user page</h1>
+<h1>Blind Date Maniac !</h1>
 
 <% if session[:user_id].nil? %>
   <% if flash[:error] %>
@@ -7,11 +7,12 @@
   <% if flash[:message] %>
    <%= flash[:messages] %>
    <%end%>
-
+<div class="login">
 <%= form_tag '/login' do %>
   Email:<%=text_field_tag :email %></br>
   Password: <%=password_field_tag :password %></br>
   <%= submit_tag "Meet some People"%>
 <% end %>
 <% end %>
-<h2>No Account yet? no problem create an Account <a href="/signup">here</a> right now</h2>
+</div>
+<h2>No Account yet? no problem create an Account <a href="/signup"> here </a> right now</h2>

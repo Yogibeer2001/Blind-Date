@@ -8,4 +8,14 @@ class ApplicationController < ActionController::Base
   end
 helper_method :current_user
 
+def logged_in?
+  !!current_user
+end
+helper_method :logged_in?
+
+def authenticate
+  redirect_to to login_path unless logged_in
+end
+
+
 end

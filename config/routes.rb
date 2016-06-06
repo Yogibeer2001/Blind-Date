@@ -25,8 +25,10 @@ Rails.application.routes.draw do
 get '/home' => 'sessions#home'
 
 
-
-
-
+resources :conversations do
+  resources :messages
+end
+resources :messages
+ # delete  => 'messages#destroy'
 
 end

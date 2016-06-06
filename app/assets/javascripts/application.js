@@ -12,5 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require jquery.simpleWeather.min.js
+//= require materialize-sprockets
 //= require_tree .
+
+$(".delete").click(function(event){
+  var clicked_id = $(event.target.id).selector;
+  console.log(clicked_id);
+})
